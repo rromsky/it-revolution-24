@@ -1,7 +1,8 @@
 import { useState } from "react";
 import AuthorizationModal from "../../modals/authorization";
 import OpenPopupButton from "../../shared/components/buttons/toggleStateButton";
-const WelcomePage = ({ user }: { user: any }) => {
+
+const WelcomePage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (

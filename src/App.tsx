@@ -20,7 +20,7 @@ const App = () => {
   }, []);
 
   return !!!user ? (
-    <WelcomePage user={user} />
+    <WelcomePage />
   ) : (
     <AdminPanel user={user} setUser={setUser} />
   );

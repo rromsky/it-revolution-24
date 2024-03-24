@@ -35,6 +35,7 @@ const Item = ({
       active={selected === title}
       style={{
         color: colors.grey[100],
+        marginBottom: 12,
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -143,13 +144,13 @@ const Sidebar = ({
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="FAQ Page"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            /> */}
             <Item
               title="Log Out"
               to="/"
