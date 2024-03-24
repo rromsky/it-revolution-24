@@ -1,6 +1,20 @@
 # MiniLink App [Desktop Only] - Під мобільні розміри не оптимізовано
 
 ## Цей проект вже був розгорнутий за посиланням [https://rromsky.tech/it-revolution-24/](https://rromsky.tech/it-revolution-24/#/)
+### Приклад скотротшеного посилання: https://rromsky.tech/it-revolution-24/#/url/s-XqNAbBz
+### Результат переходу по неправильному посиланню:
+<img width="972" alt="image" src="https://github.com/rromsky/it-revolution-24/assets/109161599/56176527-a12d-4088-b16f-96c6bf68c346">
+
+### Перехід по посиланню:
+<img width="634" alt="image" src="https://github.com/rromsky/it-revolution-24/assets/109161599/ded9c236-d298-4cb1-91bb-84d2b81afaf7">
+
+
+### Сторінка для ознайомлення:
+<img width="1295" alt="image" src="https://github.com/rromsky/it-revolution-24/assets/109161599/e54f3f91-09bc-4ce4-9b39-2cb7faa9d20b">
+
+### Адмін панель:
+<img width="1310" alt="image" src="https://github.com/rromsky/it-revolution-24/assets/109161599/59042d52-d753-4449-8a73-054010fd4e0c">
+
 
 ### Не дивлячись на шифрування даних, не раджу використовувати власний логін та пароль.
 
