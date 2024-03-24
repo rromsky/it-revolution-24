@@ -33,7 +33,7 @@ export const addNewUrl = async ({ id, url }: { id: string; url: string }) => {
     id: id,
     url: url,
     name: `url-${id}`,
-    fullUrl: `http://localhost:3000/url/${id}`,
+    fullUrl: `https://rromsky.tech/it-revolution-24/url/${id}`,
     totalViewers: 0,
     date: formatDate(new Date()),
   };

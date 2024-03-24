@@ -168,7 +168,7 @@ const AdminTable = ({ data }: { data: any }) => {
             text: "Copy URL",
             Icon: CopyIcon,
             key: row?.id + "copy",
-            onClick: handleEditClick(id),
+            onClick: () => navigator.clipboard.writeText(row?.fullUrl),
           },
           {
             text: "Delete",
