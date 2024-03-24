@@ -1,5 +1,5 @@
 # MiniLink App [Desktop Only] - Під мобільні розміри не оптимізовано
-## Цей проект вже був розгорнений за посиланням [https://rromsky.tech/it-revolution-24/](https://rromsky.tech/it-revolution-24/#/)
+## Цей проект вже був розгорнутий за посиланням [https://rromsky.tech/it-revolution-24/](https://rromsky.tech/it-revolution-24/#/)
 ### Не дивлячись на шифрування даних, не раджу використовувати власний логін та пароль. 
 
 ## Для початку роботи:
