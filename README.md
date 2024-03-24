@@ -1,9 +1,13 @@
 # MiniLink App [Desktop Only] - Під мобільні розміри не оптимізовано
+
 ## Цей проект вже був розгорнутий за посиланням [https://rromsky.tech/it-revolution-24/](https://rromsky.tech/it-revolution-24/#/)
-### Не дивлячись на шифрування даних, не раджу використовувати власний логін та пароль. 
+
+### Не дивлячись на шифрування даних, не раджу використовувати власний логін та пароль.
 
 ## Для початку роботи:
+
 ### Налаштування середовища:
+
 ```bash
 npm install -g yarn
 yarn
@@ -11,14 +15,17 @@ yarn run dev
 ```
 
 ## Локальне розгортання
+
 Оскільки цей проект використовує технологію react-router-dom, він потребував спецефічного налаштування, для розгортання на github pages, тому для коректної роботи в локальному середовищі, варто замінити наступні речі:
 
 ### package.json - прибрати рядок:
+
 ```js
 "homepage": "https://rromsky.tech/it-revolution-24/",
 ```
 
 ### /src/main.tsx - замінити
+
 ```typescript
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -46,9 +53,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </HashRouter>
   </React.StrictMode>
 );
-
 ```
-на 
+
+на
+
 ```typescript
 import React from "react";
 import ReactDOM from "react-dom/client";
