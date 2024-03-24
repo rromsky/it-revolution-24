@@ -6,6 +6,7 @@ import {
   setDoc,
   updateDoc,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -27,12 +28,19 @@ function formatDate(date: Date) {
 }
 
 export const addNewUrl = async ({ id, url }: { id: string; url: string }) => {
-  await setDoc(doc(store, "urls", `${id}`), {
+  const newUrl = {
+    owner: auth.currentUser?.uid || "anonymous",
     id: id,
     url: url,
+    name: `url-${id}`,
+    fullUrl: `http://localhost:3000/url/${id}`,
     totalViewers: 0,
     date: formatDate(new Date()),
-  });
+  };
+
+  await setDoc(doc(store, "urls", `${id}`), newUrl);
+
+  return newUrl;
 };
 
 export const getUrlFromId = async ({ id }: { id: string }) => {
@@ -53,6 +61,30 @@ export const getUrlFromId = async ({ id }: { id: string }) => {
   }
 };
 
+export const getUrlsFromUser = async () => {
+  const urlRef = query(
+    collection(store, "urls"),
+    where("owner", "==", `${auth.currentUser?.uid}`)
+  );
+  try {
+    const fetchedUrls = await getDocs(urlRef);
+    const data = fetchedUrls.docs.map((el) => {
+      return { ...el.data() };
+    });
+    return data;
+  } catch (e) {
+    return null;
+  }
+};
+export const updateUrl = async (newUrl: any) => {
+  await updateDoc(doc(store, "urls", `${newUrl.id}`), {
+    ...newUrl,
+  });
+};
+
+export const deleteUrl = async (id: string) => {
+  await deleteDoc(doc(store, "urls", `${id}`));
+};
 export const userRegister = async ({
   email,
   password,

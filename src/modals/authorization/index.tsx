@@ -63,7 +63,7 @@ const AuthorizationModal = ({
 }: {
   setIsPopupOpen: React.Dispatch<SetStateAction<boolean>>;
 }) => {
-  const [isRegistration, setIsRegistration] = useState(true);
+  const [isRegistration, setIsRegistration] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
@@ -73,7 +73,7 @@ const AuthorizationModal = ({
       <div className="overlay" onClick={() => setIsPopupOpen(false)}></div>
       <div className="popup" onClick={(e) => e.preventDefault()}>
         <div className="popup-content">
-          <h2>Вхід</h2>
+          <h2>{isRegistration ? "Реєстрація" : "Вхід"}</h2>
           <input
             type="text"
             className="authorization-input"
@@ -92,7 +92,7 @@ const AuthorizationModal = ({
             <input
               type="password"
               className="authorization-input"
-              placeholder="Password"
+              placeholder="Repeat Password"
               value={passwordRepeat}
               onChange={(e) => setPasswordRepeat(e.target.value)}
             />

@@ -9,10 +9,10 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const noPhotoUrl =
-  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fimage-placeholder%3Fimage_type%3Dillustration&psig=AOvVaw2NQA57LyZvXlb_8pQ9CeJR&ust=1711361903423000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCT74XWjIUDFQAAAAAdAAAAABAj";
-
+  "https://www.shutterstock.com/shutterstock/photos/1153673752/display_1500/stock-vector-profile-placeholder-image-gray-silhouette-no-photo-1153673752.jpg";
 const Item = ({
   title,
   to,
@@ -125,9 +125,10 @@ const Sidebar = ({
                   color={colors.grey[100]}
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  {user?.email ||
+                  {(user?.email || user?.providerData[0].email)?.split(
+                    "@"
+                  )?.[0] ||
                     user?.displayName ||
-                    user?.providerData[0].email ||
                     "Guest"}
                 </Typography>
               </Box>
@@ -156,6 +157,7 @@ const Sidebar = ({
                 const auth = getAuth();
                 auth.signOut();
                 setUser && setUser(null);
+                toast.success("You have been logged out");
               }}
               icon={<LogoutIcon />}
               selected={selected}

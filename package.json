@@ -14,12 +14,14 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
+    "@mui/x-data-grid": "6.19.6",
     "firebase": "^10.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pro-sidebar": "0.7.1",
     "react-router-dom": "^6.22.3",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
