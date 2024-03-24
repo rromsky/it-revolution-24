@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { tokens } from "../../shared/theme";
 import "react-pro-sidebar/dist/css/styles.css";
 import StorageIcon from "@mui/icons-material/Storage";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { getAuth } from "firebase/auth";
