@@ -40,9 +40,27 @@
   border-top-width: 0;
   border-left-width: 0;
   border-right-width: 0;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(0, 104, 183, 0.6),
+    rgba(0, 44, 109, 0.6)
+  ) !important;
   font-size: 1rem;
 }
 .authorization-buttons {
   display: flex;
   justify-content: space-between;
+}
+.change-auth-type-link:link,
+.change-auth-type-link:active,
+.change-auth-type-link:visited {
+  font-size: 0.8rem;
+  margin-top: -0.4rem;
+  margin-left: 4px;
+  color: rgb(230, 252, 255);
+  transition: all 0.4s;
+}
+.change-auth-type-link:hover {
+  color: rgb(148, 173, 177);
+  cursor: pointer;
 }

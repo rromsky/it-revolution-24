@@ -7,8 +7,13 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
-
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { store } from "./index";
+const auth = getAuth();
 
 function formatDate(date: Date) {
   const day = date.getDate();
@@ -46,4 +51,38 @@ export const getUrlFromId = async ({ id }: { id: string }) => {
   } catch (e) {
     return null;
   }
+};
+
+export const userRegister = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then()
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+      throw new Error(errorMessage);
+    });
+};
+
+export const userSignIn = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then()
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+      throw new Error(errorMessage);
+    });
 };

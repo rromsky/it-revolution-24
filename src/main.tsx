@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.tsx";
-import "./index.css";
 import UrlPage from "./pages/url/index.tsx";
 import Error404 from "./pages/error/404.tsx";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/admin" element={<UrlPage />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   </React.StrictMode>
 );
