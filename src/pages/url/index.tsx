@@ -1,6 +1,7 @@
-import { CircularProgress } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUrlFromId } from "../../firebase/firebaseApi";
+import error from "../error/error.svg";
 
 const loadFullUrl = async (id: string) => {
   console.log(121);
@@ -10,15 +11,35 @@ const loadFullUrl = async (id: string) => {
 };
 
 const DisplayText = () => {
-  return <div>You will be redirected right now.</div>;
+  return (
+    <div>
+      <CircularProgress />
+      <h3>You will be redirected right now.</h3>
+    </div>
+  );
 };
 const DisplayUrlNotFound = () => {
-  return <div>Url not found.</div>;
+  return (
+    <div>
+      <img src={error} alt="error" style={{ width: 512 }} />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <h3>Url not found.</h3>
+        <Button
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          color="warning"
+        >
+          Go to home
+        </Button>
+      </div>
+    </div>
+  );
 };
 
 const UrlPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [url, setUrl] = useState(window.location.href);
+  const [url] = useState(window.location.href);
   const [isUrlExist, setIsUrlExist] = useState(true);
 
   useEffect(() => {
