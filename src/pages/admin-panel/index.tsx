@@ -1,9 +1,16 @@
+import { SetStateAction } from "react";
 import Sidebar from "./Sidebar";
 
-const AdminPanel = ({ user }: { user: any }) => {
+const AdminPanel = ({
+  user,
+  setUser,
+}: {
+  user: any;
+  setUser?: React.Dispatch<SetStateAction<any>>;
+}) => {
   return (
     <div style={{ display: "flex" }}>
-      <Sidebar user={user} />
+      <Sidebar user={user} setUser={setUser} />
       <div>
         {user?.email ||
           user?.displayName ||

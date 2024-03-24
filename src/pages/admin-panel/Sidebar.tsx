@@ -45,7 +45,13 @@ const Item = ({
   );
 };
 
-const Sidebar = ({ user }: { user: any }) => {
+const Sidebar = ({
+  user,
+  setUser,
+}: {
+  user: any;
+  setUser?: React.Dispatch<SetStateAction<any>>;
+}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -124,21 +130,11 @@ const Sidebar = ({ user }: { user: any }) => {
                     user?.providerData[0].email ||
                     "Guest"}
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[400]}>
-                  {"Guest"}
-                </Typography>
               </Box>
             </Box>
           )}
 
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Features
-            </Typography>
             <Item
               title="Url's"
               to="/"
@@ -153,20 +149,13 @@ const Sidebar = ({ user }: { user: any }) => {
               selected={selected}
               setSelected={setSelected}
             />
-
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              User
-            </Typography>
             <Item
               title="Log Out"
               to="/"
               onClick={() => {
                 const auth = getAuth();
                 auth.signOut();
+                setUser && setUser(null);
               }}
               icon={<LogoutIcon />}
               selected={selected}

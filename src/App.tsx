@@ -6,7 +6,6 @@ import AdminPanel from "./pages/admin-panel";
 
 const App = () => {
   const [user, setUser] = useState<any>(null);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const auth = getAuth();
 
   useEffect(() => {
@@ -20,7 +19,11 @@ const App = () => {
     };
   }, []);
 
-  return !!!user ? <WelcomePage user={user} /> : <AdminPanel user={user} />;
+  return !!!user ? (
+    <WelcomePage user={user} />
+  ) : (
+    <AdminPanel user={user} setUser={setUser} />
+  );
 };
 
 export default App;
