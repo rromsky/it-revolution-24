@@ -1,23 +1,23 @@
 # MiniLink App
-##Цей проект вже був розгорнений за посиланням [https://rromsky.tech/it-revolution-24/](https://rromsky.tech/it-revolution-24/#/)
+## Цей проект вже був розгорнений за посиланням [https://rromsky.tech/it-revolution-24/](https://rromsky.tech/it-revolution-24/#/)
 
 ## Для початку роботи:
-###Налаштування середовища:
+### Налаштування середовища:
 ```bash
 npm install -g yarn
 yarn
 yarn run dev
 ```
 
-##Локальне розгортання
+## Локальне розгортання
 Оскільки цей проект використовує технологію react-router-dom, він потребував спецефічного налаштування, для розгортання на github pages, тому для коректної роботи в локальному середовищі, варто замінити наступні речі:
 
-###package.json - прибрати рядок:
+### package.json - прибрати рядок:
 ```js
 "homepage": "https://rromsky.tech/it-revolution-24/",
 ```
 
-###/src/main.tsx - замінити
+### /src/main.tsx - замінити
 ```typescript
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -76,7 +76,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 ```
 
-###vite.config.js - прибрати
+### vite.config.js - прибрати
 
 ```js
   base: "/it-revolution-24/",
