@@ -7,14 +7,13 @@ import Error404 from "./pages/error/404.tsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
-const basename = "/";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <HashRouter basename={basename}>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/url">
+        <Route path="/url" element={<UrlPage />}>
           <Route path="*" element={<UrlPage />} />
         </Route>
         <Route path="/admin" element={<UrlPage />} />

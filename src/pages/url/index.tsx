@@ -4,7 +4,6 @@ import { getUrlFromId } from "../../firebase/firebaseApi";
 import error from "../error/error.svg";
 
 const loadFullUrl = async (id: string) => {
-  console.log(121);
   const url = await getUrlFromId({ id });
 
   return url;
@@ -26,7 +25,10 @@ const DisplayUrlNotFound = () => {
         <h3>Url not found.</h3>
         <Button
           onClick={() => {
-            window.location.href = "/";
+            window.location.href = window.location.href
+              .split("/")
+              .slice(0, -2)
+              .join("/");
           }}
           color="warning"
         >
@@ -47,21 +49,28 @@ const UrlPage = () => {
       return;
     }
 
-    const id = url.split("/").pop() || window.location.href.split("/").pop();
-    console.log(id);
-    if (!id || id === "url") {
-      //   window.location.href = "/";
+    const id =
+      url.split("/").pop() || window.location.href.split("/").pop() || "";
+
+    if (!id) {
+      setIsUrlExist(false);
+      setIsLoading(false);
       return;
     }
 
-    loadFullUrl(id).then((fullUrl: string) => {
-      console.log(123);
-      setIsUrlExist(!!fullUrl);
-      setIsLoading(false);
-      if (fullUrl) {
-        window.location.href = fullUrl;
-      }
-    });
+    loadFullUrl(id)
+      .then((fullUrl: string) => {
+        console.log(123);
+        setIsUrlExist(!!fullUrl);
+        setIsLoading(false);
+        if (fullUrl) {
+          window.location.href = fullUrl;
+        }
+      })
+      .catch(() => {
+        setIsUrlExist(false);
+        setIsLoading(false);
+      });
   }, [url]);
 
   return (
@@ -70,6 +79,7 @@ const UrlPage = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        textAlign: "center",
         width: "100%",
         height: "100%",
       }}
